@@ -114,6 +114,8 @@ def get_hotj():
 def get_random_color():
   return "#%06x" % random.randint(0, 0xFFFFFF)
 
+def get_redhot():
+  return "#DC143C"
 
 client = WeChatClient(app_id, app_secret)
 
@@ -130,6 +132,6 @@ hot8 = get_hoth()
 hot9 = get_hoti()
 hot10 = get_hotj()
 hot = hot1+'\n'+hot2+'\n'+hot3+'\n'+hot4+'\n'+hot5+'\n'+hot6+'\n'+hot7+'\n'+hot8+'\n'+hot9+'\n'+hot10
-data = {"weather":{"value":wea, "color":get_random_color()},"temperature":{"value":temperature, "color":get_random_color()},"humidity":{"value":humidity, "color":get_random_color()},"wind":{"value":wind, "color":get_random_color()},"love_days":{"value":get_count(), "color":get_random_color()},"birthday_left":{"value":get_birthday(), "color":get_random_color()},"words":{"value":get_words(), "color":get_random_color()},"hot":{"value":hot, "color":#DC143C}}
+data = {"weather":{"value":wea, "color":get_random_color()},"temperature":{"value":temperature, "color":get_random_color()},"humidity":{"value":humidity, "color":get_random_color()},"wind":{"value":wind, "color":get_random_color()},"love_days":{"value":get_count(), "color":get_random_color()},"birthday_left":{"value":get_birthday(), "color":get_random_color()},"words":{"value":get_words(), "color":get_random_color()},"hot":{"value":hot, "color":get_redhot()}}
 res = wm.send_template(user_id, template_id, data)
 print(res)
