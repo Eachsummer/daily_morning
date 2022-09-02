@@ -5,6 +5,7 @@ from wechatpy.client.api import WeChatMessage, WeChatTemplate
 import requests
 import os
 import random
+import json
 
 today = datetime.now()
 start_date = os.environ['START_DATE']
@@ -43,16 +44,16 @@ def get_words():
 def get_hot():
   url = "https://tenapi.cn/resou/"
   res = requests.get(url).json()
-  hot0 = res['data']['list'][0]
-  hot1 = res['data']['list'][1]
-  hot2 = res['data']['list'][2]
-  hot3 = res['data']['list'][3]
-  hot4 = res['data']['list'][4]
-  hot5 = res['data']['list'][5]
-  hot6 = res['data']['list'][6]
-  hot7 = res['data']['list'][7]
-  hot8 = res['data']['list'][8]
-  hot9 = res['data']['list'][9]
+  hot0 = res['list'][0]
+  hot1 = res['list'][1]
+  hot2 = res['list'][2]
+  hot3 = res['list'][3]
+  hot4 = res['list'][4]
+  hot5 = res['list'][5]
+  hot6 = res['list'][6]
+  hot7 = res['list'][7]
+  hot8 = res['list'][8]
+  hot9 = res['list'][9]
   return hot0['name'],
          hot1['name'],
          hot2['name'],
