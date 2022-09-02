@@ -40,6 +40,30 @@ def get_words():
     return get_words()
   return words.json()['data']['text']
 
+def get_hot():
+  url = "https://tenapi.cn/resou/"
+  res = requests.get(url).json()
+  hot0 = res['data']['list'][0]
+  hot1 = res['data']['list'][1]
+  hot2 = res['data']['list'][2]
+  hot3 = res['data']['list'][3]
+  hot4 = res['data']['list'][4]
+  hot5 = res['data']['list'][5]
+  hot6 = res['data']['list'][6]
+  hot7 = res['data']['list'][7]
+  hot8 = res['data']['list'][8]
+  hot9 = res['data']['list'][9]
+  return hot0['name'],
+         hot1['name'],
+         hot2['name'],
+         hot3['name'],
+         hot4['name'],
+         hot5['name'],
+         hot6['name'],
+         hot7['name'],
+         hot8['name'],
+         hot9['name']
+
 def get_random_color():
   return "#%06x" % random.randint(0, 0xFFFFFF)
 
@@ -54,6 +78,7 @@ data = {"weather":{"value":wea, "color":get_random_color()},
         "wind":{"value":wind, "color":get_random_color()},
         "love_days":{"value":get_count(), "color":get_random_color()},
         "birthday_left":{"value":get_birthday(), "color":get_random_color()},
-        "words":{"value":get_words(), "color":get_random_color()}}
+        "words":{"value":get_words(), "color":get_random_color()}},
+        "hot":{"value":get_hot(), "color":get_random_color()}}
 res = wm.send_template(user_id, template_id, data)
 print(res)
