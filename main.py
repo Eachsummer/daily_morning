@@ -129,6 +129,6 @@ hot7 = get_hotg()
 hot8 = get_hoth()
 hot9 = get_hoti()
 hot10 = get_hotj()
-data = {"weather":{"value":wea, "color":get_random_color()},"temperature":{"value":temperature, "color":get_random_color()},"humidity":{"value":humidity, "color":get_random_color()},"wind":{"value":wind, "color":get_random_color()},"love_days":{"value":get_count(), "color":get_random_color()},"birthday_left":{"value":get_birthday(), "color":get_random_color()},"words":{"value":get_words(), "color":get_random_color()}},"hot":{"value":hot1, "color":get_random_color()} }
+data = {"weather":{"value":wea, "color":get_random_color()},"temperature":{"value":temperature, "color":get_random_color()},"humidity":{"value":humidity, "color":get_random_color()},"wind":{"value":wind, "color":get_random_color()},"love_days":{"value":get_count(), "color":get_random_color()},"birthday_left":{"value":get_birthday(), "color":get_random_color()},"words":{"value":get_words(), "color":get_random_color()},"hot":{"value":hot1, "color":get_random_color()}}
 res = wm.send_template(user_id, template_id, data)
 print(res)
