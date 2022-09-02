@@ -41,29 +41,75 @@ def get_words():
     return get_words()
   return words.json()['data']['text']
 
-def get_hot():
-  url = "https://tenapi.cn/resou/"
-  res = requests.get(url).json()
-  hot0 = res['list'][0]
-  hot1 = res['list'][1]
-  hot2 = res['list'][2]
-  hot3 = res['list'][3]
-  hot4 = res['list'][4]
-  hot5 = res['list'][5]
-  hot6 = res['list'][6]
-  hot7 = res['list'][7]
-  hot8 = res['list'][8]
-  hot9 = res['list'][9]
-  return hot0['name'],
-         hot1['name'],
-         hot2['name'],
-         hot3['name'],
-         hot4['name'],
-         hot5['name'],
-         hot6['name'],
-         hot7['name'],
-         hot8['name'],
-         hot9['name']
+def get_hota():
+    url = "https://tenapi.cn/resou/"
+    res = requests.get(url).json()
+    hot0 = res['list'][0]
+    return hot0['name']
+
+
+def get_hotb():
+    url = "https://tenapi.cn/resou/"
+    res = requests.get(url).json()
+    hot0 = res['list'][1]
+    return hot0['name']
+
+
+def get_hotc():
+    url = "https://tenapi.cn/resou/"
+    res = requests.get(url).json()
+    hot0 = res['list'][2]
+    return hot0['name']
+
+
+def get_hotd():
+    url = "https://tenapi.cn/resou/"
+    res = requests.get(url).json()
+    hot0 = res['list'][3]
+    return hot0['name']
+  
+
+def get_hote():
+    url = "https://tenapi.cn/resou/"
+    res = requests.get(url).json()
+    hot0 = res['list'][4]
+    return hot0['name']
+
+
+def get_hotf():
+    url = "https://tenapi.cn/resou/"
+    res = requests.get(url).json()
+    hot0 = res['list'][5]
+    return hot0['name']
+  
+
+def get_hotg():
+    url = "https://tenapi.cn/resou/"
+    res = requests.get(url).json()
+    hot0 = res['list'][6]
+    return hot0['name']
+
+
+def get_hoth():
+    url = "https://tenapi.cn/resou/"
+    res = requests.get(url).json()
+    hot0 = res['list'][7]
+    return hot0['name']
+  
+
+def get_hoti():
+    url = "https://tenapi.cn/resou/"
+    res = requests.get(url).json()
+    hot0 = res['list'][8]
+    return hot0['name']
+
+
+def get_hotj():
+    url = "https://tenapi.cn/resou/"
+    res = requests.get(url).json()
+    hot0 = res['list'][9]
+    return hot0['name']
+
 
 def get_random_color():
   return "#%06x" % random.randint(0, 0xFFFFFF)
@@ -73,6 +119,16 @@ client = WeChatClient(app_id, app_secret)
 
 wm = WeChatMessage(client)
 wea, temperature, humidity, wind = get_weather()
+hot1 = get_hota()
+hot2 = get_hotb()
+hot3 = get_hotc()
+hot4 = get_hotd()
+hot5 = get_hote()
+hot6 = get_hotf()
+hot7 = get_hotg()
+hot8 = get_hoth()
+hot9 = get_hoti()
+hot10 = get_hotj()
 data = {"weather":{"value":wea, "color":get_random_color()},
         "temperature":{"value":temperature, "color":get_random_color()},
         "humidity":{"value":humidity, "color":get_random_color()},
@@ -80,6 +136,6 @@ data = {"weather":{"value":wea, "color":get_random_color()},
         "love_days":{"value":get_count(), "color":get_random_color()},
         "birthday_left":{"value":get_birthday(), "color":get_random_color()},
         "words":{"value":get_words(), "color":get_random_color()}},
-        "hot":{"value":get_hot(), "color":get_random_color()}}
+        "hot":{"value":get_hota(), "color":get_random_color()}}
 res = wm.send_template(user_id, template_id, data)
 print(res)
